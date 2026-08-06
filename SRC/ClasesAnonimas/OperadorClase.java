@@ -6,7 +6,7 @@ public class OperadorClase {
     public static void main(String[] args) {
         // se crea una clase anonima que implementa la interfaz Operador  y luego se crea el objeto
         Operador suma = new Operador() {
-            @Override
+            @Override // se implementa el metodo operar de la interfaz Operador
             public int operar(int numero1, int numero2) {
                 return numero1 + numero2;
             }
