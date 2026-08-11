@@ -2,7 +2,17 @@ package GestionAutosVentas;
 import GestionAutosVentas.logica.auto;
 
 
-public class main {
+public class Main {
+public static void main(String[]args){
+
+
+
+
+
+
+
+}
+
 
     
 }
