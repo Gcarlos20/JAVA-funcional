@@ -28,28 +28,46 @@ public static void main(String[]args){
         new auto("Ferrari","488", 250000),
         new auto("Lamborghtini", "Huracan", 300000)
     );
+    System.out.println("--------------------------------------------------------------");
 
      // 1 ordenar de mayor a menor por costo
+     System.out.println("Autos ordenados por costo de menor a mayor:");
      List<auto> autosOrdenadosPorCosto = new ArrayList<auto>(ListaAutos);
      autosOrdenadosPorCosto.sort(Comparator.comparing(auto::getCosto));
      autosOrdenadosPorCosto.forEach( System.out::println); // se imprime la lista de autos ordenados por costo de mayor a menor
-     
+     System.out.println("--------------------------------------------------------------");
+
      // 2 Ordenar por marca y luego por precio utilizando sorted 
+     System.out.println("Autos ordenados por marca y luego por costo:");
      ListaAutos.stream()
         .sorted(Comparator.comparing(auto::getMarca)
         .thenComparing(auto::getCosto))
         .forEach(System.out::println); // se imprime la lista de autos ordenados por
-    
+    System.out.println("--------------------------------------------------------------");
+
+
     // 3 Filtrar autos cuyo precio no supere los 30000 y mostrar solo la marca y el modelo
+    System.out.println("Autos cuyo precio no supere los 30000:");
     ListaAutos.stream()
         .filter(auto -> auto.getCosto() <= 30000)
         .forEach(auto -> System.out.println(auto.getMarca() + " " + auto.getModelo()));
-    
+    System.out.println("--------------------------------------------------------------");
+
+
     // 4 autos de marca "Tesla" o "BMW"
+    System.out.println("Autos de marca Tesla o BMW:");
     ListaAutos.stream()
         .filter(auto->auto.getMarca().equals("Tesla") || auto.getMarca().equals("BMW"))
         .forEach(auto -> System.out.println(auto.getMarca() + " " + auto.getModelo() + " " + auto.getCosto()));
-}
+    System.out.println("--------------------------------------------------------------");
+
+
+    // 5 autos cuyo modelo contenga la letra "a" 
+    System.out.println("Autos cuyo modelo contenga la letra 'a':");
+    ListaAutos.stream()
+        .filter(auto -> auto.getModelo().toLowerCase().contains("a"))
+        .forEach(System.out::println); // se imprime la lista de autos cuyo modelo contenga la letra "a"
+ }
 
 
     

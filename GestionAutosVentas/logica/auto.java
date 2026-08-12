@@ -34,6 +34,6 @@ public class auto {
  // este metodo toString() se utiliza para mostrar la informacion del objeto auto en forma de cadena de texto
     @Override // para sobrescribir el metodo toString() de la clase Object
     public String toString() {
-        return "auto [marca=" + marca + ", modelo=" + modelo + ", costo=" + costo + "]";
+        return "auto [marca = " + marca + ", modelo = " + modelo + ", costo = " + costo + "]";
     }
 }
