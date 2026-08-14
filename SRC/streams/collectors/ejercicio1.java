@@ -18,14 +18,25 @@ public class ejercicio1 {
         // Ejemplo 2: Collectors.toSet()
         List<String> paises = List.of("Colombia", "Argentina", "Panama", "Puerto Rico", "Tunez");
         Set<String> filtrados2 = paises.stream()
-            .filter(s -> s.toLowerCase().contains("a"))
+            .filter(s -> s.toLowerCase().startsWith("p"))
             .collect(Collectors.toSet());
 
-        System.out.println("Filtrados2 (toSet): " + filtrados2);
+        System.out.println("Filtrados2 (toSet, startsWith 'p'): " + filtrados2);
 
         // Ejemplo 3: Collectors.joining()
-        String joined = filtrados.stream().collect(Collectors.joining(", "));
+        String joined = filtrados.stream()
+            .collect(Collectors.joining(", "));
         System.out.println("Joined: " + joined);
+
+
+        // Ejemplo 4: counting (uso correcto)
+        List<String> estados = List.of("Dinamarca", "israel", "Checo", "Rusia", "Tunez");
+        long cantidadPais = estados.stream()
+            .filter(n -> n.startsWith("T"))
+            .count();
+
+        System.out.println("cantidad de paises con T: " + cantidadPais);
     }
 }
 
+         
