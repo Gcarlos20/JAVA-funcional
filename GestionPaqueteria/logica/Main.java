@@ -2,6 +2,7 @@ package GestionPaqueteria.logica;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import GestionPaqueteria.clases.Cliente;
@@ -12,35 +13,38 @@ public class Main {
 
         System.out.println("---------- bienvenido al sistema----------------------");
         System.out.println("Ingrese el numero de cliente a enviar un paquete");
-        Scanner teclado = new Scanner(System.in);
-        long numero = teclado.nextLong();
 
-        Cliente cliente = buscarCliente(listaClientes, numero);
+        try (Scanner teclado = new Scanner(System.in)) {
+            long numero = teclado.nextLong();
+            Optional<Cliente> cliente = buscarCliente(listaClientes, numero);
 
-        if (cliente != null) {
-            System.out.println("Cliente encontrado: " + cliente.getNombre() + " " + cliente.getApellido());
-        } else {
-            System.out.println("Cliente no encontrado.");
+            if (cliente.isPresent()) {
+                System.out.println("Cliente encontrado: " + cliente.get());
+            } else {
+                System.out.println("Cliente no encontrado.");
+            }
         }
-        teclado.close();
     }
 
     private static List<Cliente> obtenerClientes() {
         return Arrays.asList(
             new Cliente(1, "Juan", "Perez", "Calle 10", "3001234567"),
-            new Cliente(2, "Ana", "Gomez", null, "3107654321"),
+            new Cliente(2, "Ana", "Gomez", "Sin direccion registrada", "3107654321"),
             new Cliente(3, "Luis", "Martinez", "Avenida 30", "3209876543"),
             new Cliente(4, "Pedro", "Lopez", "Calle 20", "3211111111"),
-            new Cliente(5, "Sofia", "Diaz", null, "3222222222")
+            new Cliente(5, "Sofia", "Diaz", "Sin direccion registrada", "3222222222")
         );
-    }
+    } 
 
-    private static Cliente buscarCliente(List<Cliente> lista, long numero) {
+    private static Optional<Cliente> buscarCliente(List<Cliente> lista, long numero) {
         for (Cliente c : lista) {
             if (c.getNro_cliente() == numero) {
-                return c;
+                return Optional.of(c);
             }
         }
-        return null;
+        return Optional.empty();
     }
+
 }
+
+
