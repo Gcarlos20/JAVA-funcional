@@ -1,7 +1,9 @@
 package SRC.streams.collectors;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class ejercicio1 {
@@ -36,6 +38,15 @@ public class ejercicio1 {
             .count();
 
         System.out.println("cantidad de paises con T: " + cantidadPais);
+
+
+        // ejemplo 5 Collectors.PartitioningBy()7
+        // partition sirve para separar grupos mediante una condicon
+        List<Integer> numero = List.of(13,12,11,10,9,8,7,6,5,4,3,2,1,22);
+        Map<Boolean,List<Integer>> mayoresEdada= numero.stream() 
+        .collect(Collectors.partitioningBy(n -> n >= 19)); // condicion mas expresion lambda 
+        System.out.println(mayoresEdada);
+
     }
 }
 
