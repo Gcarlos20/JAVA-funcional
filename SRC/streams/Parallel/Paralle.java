@@ -18,6 +18,17 @@ public class Paralle {
 
 
         // pallel Stream
+        tiempoInicio = System.nanoTime();
+        Arrays.stream(numeros).parallel().forEach(n-> System.out.println("Secuencia parallela " + n));  
+        long tiempoInicio1 = System.nanoTime(); // para ver cuanto se demora en nano segundos
+        long tiempoFinal1 = System.currentTimeMillis(); // para ver cuantos mili segundos tarda 
+
+        System.out.println("tiempo parallelo en nanoSegundos " + tiempoInicio1);
+        System.out.println("Tiempo final en parallelo en milisegundos " + tiempoFinal1);
+
+        System.out.println("Tiempo secuencial en parallelo " + (tiempoInicio1 - tiempoFinal1));
+
+
 
 
 
