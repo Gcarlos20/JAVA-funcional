@@ -1,7 +1,9 @@
 package GestorProdutosSuperMar.Logica;
 import GestorProdutosSuperMar.clase.ProductoA1;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -33,6 +35,13 @@ public class Productos {
         .mapToInt(ProductoA1::getPrecio)
         .sum();
     System.out.println("Total precio de Lácteos: " + lacteosTotal);
+
+    // obtener precio mas bajo 
+    Optional<ProductoA1> productoMasBajo = productos.stream()
+        .min(Comparator.comparing(ProductoA1::getPrecio));   
+        System.out.println("Producto más barato: " + productoMasBajo);
+
+    
     
         
     }
