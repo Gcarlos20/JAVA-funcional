@@ -27,6 +27,12 @@ public class Productos {
         .collect(Collectors.toList());
         System.out.println("Productos que son Frutas  " + frutas);
     
+    // calcular el precio de productos en lacteos 
+    int lacteosTotal = productos.stream()
+        .filter(p -> p.getCategoria().equals("Lácteos"))
+        .mapToInt(ProductoA1::getPrecio)
+        .sum();
+    System.out.println("Total precio de Lácteos: " + lacteosTotal);
     
         
     }

@@ -35,7 +35,7 @@ public class ProductoA1 {
         this.cantidad = cantidad;
     }
 
-    public int precio (){
+    public int getPrecio (){
         return precio;
     }
     public void setPrecio (int precio){
