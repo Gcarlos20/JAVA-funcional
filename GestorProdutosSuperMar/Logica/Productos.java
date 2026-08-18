@@ -3,7 +3,9 @@ import GestorProdutosSuperMar.clase.ProductoA1;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
@@ -39,9 +41,14 @@ public class Productos {
     // obtener precio mas bajo 
     Optional<ProductoA1> productoMasBajo = productos.stream()
         .min(Comparator.comparing(ProductoA1::getPrecio));   
-        System.out.println("Producto más barato: " + productoMasBajo);
+         System.out.println("Producto más barato: " + productoMasBajo);
 
-    
+    // agrupar productos por categoria 
+     
+    Map<String, List<ProductoA1>> productosPorCategoria = productos.stream()
+    .collect(Collectors.groupingBy(ProductoA1::getCategoria));
+    System.out.println("\n Productos Agrupados Por Categoria " + productosPorCategoria);
+
     
         
     }
