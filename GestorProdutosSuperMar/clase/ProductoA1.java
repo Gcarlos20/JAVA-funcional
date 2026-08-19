@@ -25,7 +25,7 @@ public class ProductoA1 {
         return categoria;
     }
       public void setCategoria (String categoria){
-        this.nombre = categoria;
+                this.categoria = categoria;
     }
 
     public int getCantidad(){

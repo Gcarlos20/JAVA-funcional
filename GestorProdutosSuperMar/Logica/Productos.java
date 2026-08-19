@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 
@@ -48,7 +47,16 @@ public class Productos {
     Map<String, List<ProductoA1>> productosPorCategoria = productos.stream()
     .collect(Collectors.groupingBy(ProductoA1::getCategoria));
     System.out.println("\n Productos Agrupados Por Categoria " + productosPorCategoria);
+     
+    // calcular es precio promedio de los productos por categoria
+    Map<String, Double> promedioPorCategoria = productos.parallelStream()
+    .collect(Collectors.groupingBy(
+        ProductoA1::getCategoria,
+        Collectors.averagingDouble(ProductoA1::getPrecio)));
+    System.out.println("Promedio por categoria: " + promedioPorCategoria);
 
+    
+    // obtener la categor
     
         
     }
