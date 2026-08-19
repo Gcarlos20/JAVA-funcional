@@ -56,7 +56,12 @@ public class Productos {
     System.out.println("Promedio por categoria: " + promedioPorCategoria);
 
     
-    // obtener la categor
+    // obtener la categoria con el precio promedio mas alto 
+    String categoriaMasCara = promedioPorCategoria.entrySet().parallelStream()
+    .max(Comparator.comparingDouble(Map.Entry::getValue))
+    .map(Map.Entry::getKey)
+    .orElse("no disponible");
+    System.out.println("Categoría con el precio promedio más alto: " + categoriaMasCara);
     
         
     }
