@@ -43,6 +43,14 @@ public void setVivo(){
     this.vivo = vivo;
 } 
 
+@Override
+public String toString(){
+
+    return  "Nombre " + nombre  +
+            "Tip" + tipo +
+            "Id" + id +
+            "Vivo " + vivo; 
+}
  
 
 
