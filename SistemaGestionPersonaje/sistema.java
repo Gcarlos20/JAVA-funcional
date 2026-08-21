@@ -27,7 +27,7 @@ public static void main(String[] args) {
 
     // menu de personajes 
     do {
-    System.out.println("==========Gestion de perosonajes =========");
+    System.out.println("==========Gestion de personajes ==========");
     System.out.println("1. Mostrar todos");
     System.out.println("2. Mostrar personajes vivos");
     System.out.println("3. Mostrar personajes muertos");
@@ -81,10 +81,16 @@ public static void main(String[] args) {
                 System.out.println("ordenar por nombres");
                 personajes.stream()
                 .sorted(Comparator.comparing(personaje::getNombre))
+                 .map(personaje -> personaje.getNombre())
                 .forEach(System.out::println);
             break;
             case 7:
-                System.out.println("contar personajes vivos");
+                System.out.println("personajes vivos");
+                long cantidadPersonajesVivos = personajes.stream()
+                .filter(personaje -> personaje.getVivo())
+                .count();
+                System.out.println("Cantidad de personajes vivos: " + cantidadPersonajesVivos);
+
                 break;        
             default:
                 System.out.println("Operacion no valida");
