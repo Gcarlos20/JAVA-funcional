@@ -97,26 +97,9 @@ public static void main(String[] args) {
                 break;
         }
     } while(opcion !=0);
-
  
 
-
-
-
-
-
-
-
-
-
-
-
     }
-
-private static Comparator<? super personaje> Comparator(Object object) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'Comparator'");
-}
 
 
 }
