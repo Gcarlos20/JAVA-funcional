@@ -1,4 +1,4 @@
-package GestorProdutosSuperMar.Logica;
+ package GestorProdutosSuperMar.Logica;
 import GestorProdutosSuperMar.clase.ProductoA1;
 import java.util.Arrays;
 import java.util.Comparator;

@@ -44,14 +44,12 @@ public void setVivo(){
 } 
 
 @Override
-public String toString(){
-
-    return  "Nombre " + nombre  +
-            "Tip" + tipo +
-            "Id" + id +
-            "Vivo " + vivo; 
+public String toString() {
+    return "Nombre: " + nombre +
+           " | Tipo: " + tipo +
+           " | ID: " + id +
+           " | Vivo: " + vivo;
 }
- 
 
 
 }
