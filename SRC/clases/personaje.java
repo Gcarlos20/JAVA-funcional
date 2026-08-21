@@ -4,13 +4,13 @@ public class personaje{
     private String nombre;
     private String tipo;
     private int id;
-    private boolean prestado;
+    private boolean vivo;
     
-public personaje(String nombre, String tipo, int id, boolean prestado){
+public personaje(String nombre, String tipo, int id, boolean vivo){
     this.nombre = nombre;
     this.tipo = tipo;
     this.id =  id;
-    this.prestado = prestado;
+    this.vivo = vivo;
 }
 
 public String getNombre(){
@@ -36,11 +36,11 @@ public void setIt(int id){
     this.id = id;
 }
 
-public boolean getPrestado(){
-    return prestado;
+public boolean getVivo(){
+    return vivo;
 }
-public void setPrestado(){
-    this.prestado = prestado;
+public void setVivo(){
+    this.vivo = vivo;
 } 
 
  
