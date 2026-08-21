@@ -1,6 +1,7 @@
 package SistemaGestionPersonaje;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -74,10 +75,13 @@ public static void main(String[] args) {
                 .map(personaje-> personaje.getNombre())
                 .forEach(System.out::println);
             break;
-            
+
 
             case 6:
                 System.out.println("ordenar por nombres");
+                personajes.stream()
+                .sorted(Comparator.comparing(personaje::getNombre))
+                .forEach(System.out::println);
             break;
             case 7:
                 System.out.println("contar personajes vivos");
@@ -102,6 +106,11 @@ public static void main(String[] args) {
 
 
     }
+
+private static Comparator<? super personaje> Comparator(Object object) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'Comparator'");
+}
 
 
 }
